@@ -20,7 +20,7 @@ export default function App() {
           path="/"
           element={
             <CheckAuth protectedRoute={true}>
-              <ChargePage />
+              <Tickets />
             </CheckAuth>
           }
         />
