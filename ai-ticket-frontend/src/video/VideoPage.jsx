@@ -1,10 +1,15 @@
-import React, { useEffect, useRef, useState } from 'react';
-import { useLocation, useParams } from 'react-router-dom';
-import { ZegoUIKitPrebuilt } from '@zegocloud/zego-uikit-prebuilt';
-import { APP_ID, SERVER_SECRET } from '../video/constant.js';
+import React, { useEffect, useRef, useState } from "react";
+import { useLocation, useParams } from "react-router-dom";
+import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
+import { APP_ID, SERVER_SECRET } from "../video/constant.js";
 
 const VideoPage = () => {
-  const [form, setForm] = useState({ link: "", recieverEmail: "", message: "", id: "" });
+  const [form, setForm] = useState({
+    link: "",
+    recieverEmail: "",
+    message: "",
+    id: "",
+  });
   const [loading, setLoading] = useState(false);
   const [joined, setJoined] = useState(false); // 👈 State to toggle UI
 
@@ -17,7 +22,6 @@ const VideoPage = () => {
 
   const userID = `user_${Date.now()}_${Math.floor(Math.random() * 1000)}`;
   const username = `Guest-${userID.slice(-7)}`;
-
 
   useEffect(() => {
     setForm({
@@ -79,7 +83,7 @@ const VideoPage = () => {
         container: containerRef.current,
         sharedLinks: [
           {
-            name: 'Copy Link',
+            name: "Copy Link",
             url: `${window.location.origin}/room/${roomID}`,
           },
         ],
@@ -94,14 +98,19 @@ const VideoPage = () => {
   }, [roomID]);
 
   return (
-    <div className={`w-full ${joined ? 'h-screen' : 'grid grid-rows-[auto_auto] lg:grid-rows-1 lg:grid-cols-[65%_35%]'}`}>
-     
+    <div
+      className={`w-full ${
+        joined
+          ? "h-screen"
+          : "grid grid-rows-[auto_auto] lg:grid-rows-1 lg:grid-cols-[65%_35%]"
+      }`}
+    >
       <div
         ref={containerRef}
         className={`${
           joined
-            ? 'w-full h-screen bg-black z-50'
-            : 'w-full h-[60vh] lg:h-full lg:min-h-screen lg:-mt-16 rounded-lg overflow-hidden'
+            ? "w-full h-screen bg-black z-50"
+            : "w-full h-[60vh] lg:h-full lg:min-h-screen lg:-mt-16 rounded-lg overflow-hidden"
         }`}
       />
 
@@ -109,7 +118,9 @@ const VideoPage = () => {
       {!joined && (
         <div className="w-full h-full p-4 text-white lg:mt-7">
           <form onSubmit={handleInvite} className="space-y-4">
-            <h2 className="text-lg font-semibold text-center mb-4">📤 Share Room</h2>
+            <h2 className="text-lg font-semibold text-center mb-4">
+              📤 Share Room
+            </h2>
 
             <div className="mb-4">
               <label className="block text-sm mb-1">Room Link</label>

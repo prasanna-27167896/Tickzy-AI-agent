@@ -33,7 +33,7 @@ app.use(
   "/api/inngest",
   serve({
     client: inngest,
-    functions: [onUserSignup, onTicketCreated,onSendInvite],
+    functions: [onUserSignup, onTicketCreated, onSendInvite],
   })
 );
 
